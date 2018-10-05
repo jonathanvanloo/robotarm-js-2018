@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>opdr. robotarm week 6</title>
+    <script type="text/javascript" src="js-w6/opdr-robotarm-w6.js"></script>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <script src="./robot-arm.js"></script>
+  <script>
+  // Robotarm bibliotheek inladen
+    var canvas = document.getElementById("canvas");
+    var robotArm = new RobotArm(canvas);
+    
+    // Het level inladen
+    robotArm.loadLevel("exercise 10");
+
+    // Jou instructies volgen hier
+    robotArm.speed =1000
+
+      for (var a = 9; a > 0; a = a - 2){
+          robotArm.grab();
+          console.log (a);
+          for (var r = 0; r < a; r++){
+              robotArm.moveRight();
+          }
+          robotArm.drop();
+          for (var l = 0; l < a - 1; l++){
+              robotArm.moveLeft();
+          }
+      }
+
+    // De door jou opgegeven instructies uitvoeren
+    robotArm.run();
+  </script>
+</body>
+</html>
